@@ -33,6 +33,7 @@ function UserContextProvider({children}: {children: ReactNode}) {
 
   const getAuthSession = async () => {
     const session = await supabase?.auth?.getSession();
+    console.log('session::', session);
     setAuthSession(session?.data?.session);
     setUser(session?.data?.session?.user || null);
     setIsAuthenticated(session?.data?.session?.user ? true : false);
